@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <h1 align="center">FORM VALIDATION (IWP)</h1>
+    <script type="text/javascript">
+
+    function valid(){
+      var firstname = document.getElementById('firstname').value;
+      var lastname = document.getElementById('lastname').value;
+      var address = document.getElementById('address').value;
+      var radio = document.getElementsByName("ge");
+      var check = document.getElementsByName("terms");
+      var e = document.getElementById('select');
+      var optionSelected  = e.options[e.selectedIndex].value;
+
+
+      if(firstname == ""){
+        alert("Name Field is left Invalid");
+        return false;
+      }
+      if (!isNaN(firstname)) {
+        alert("Numeric values not allowed in name");
+        return false;
+      }
+      if(firstname.length <3) {
+        alert("Invalid Name");
+        return false;
+      }
+
+      if( lastname == ""){
+        alert("Name Field is left Invalid");
+        return false;
+      }
+      if (!isNaN(lastname)) {
+        alert("Numeric values not allowed in name");
+        return false;
+      }
+      if(lastname.length <3) {
+        alert("Last Name is Invalid");
+        return false;
+      }
+      if(address.length <3) {
+    alert("Address is mandatory in with details");
+    return false;
+    }
+
+      if (radio[0].checked != true && radio[1].checked != true) {
+        alert("Choose a radio button");
+        return false;
+      }
+      if (check[0].checked != true ) {
+        alert("Terms and conditions are not agreed");
+        return false;
+      }
+      if (optionSelected == 0) {
+        alert("Select a dropdown");
+        return false;
+      }
+      else {
+        alert("Form Submitted");
+        return true;
+      }
+    }
+
+
+    </script>
+    <style>
+body {
+  background-color: #DFF09E;
+}
+</style>
+  </head>
+  <body>
+
+    <table align="center" border="1px" color="black" >
+      <form class="" action="index.html" method="get" onsubmit="return valid()">
+
+      <tr>
+        <td height="50px">First Name</td><td height="50px"><input type="text" placeholder="First Name" size="60px" id="firstname"></td>
+      </tr>
+      <tr>
+        <td height="50px">Last Name</td><td height="50px"><input type="text" placeholder="Last Name" size="60px" id="lastname"></td>
+      </tr>
+      <tr>
+        <td height="60px">Address</td><td height="60px"><input type="text" placeholder="Delivery Location" size="60px" id="address"></td>
+      </tr>
+      <tr>
+        <td height="50px">Email</td><td height="50px"><input type="Email" placeholder="Email" size="60px" id="Email"></td>
+      <tr>
+      <tr>
+        <td height="50px">Nationality</td><td height="50px"><select name="size" id="select">
+          <option value="0" disabled>Select </option>
+            <option value="regular">Indian</option>
+            <option value="medium">NRI</option>
+            <option value="large">Other</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td >Gender</td><td><input type="radio" value="male" name="ge">Male <br> <input type="radio" value="female" name="ge">Female</td>
+      </tr>
+      <tr>
+        <td height="60px">Terms</td><td height="60px">
+      <input type="checkbox" name="terms" class="genm">Agree with terms
+      </td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="submit" value="Submit" />
+        <input type="reset" value="Reset" name="Reset"></td>
+      </tr>
+      </form>
+    </table>
+
+
+  </body>
+</html>
