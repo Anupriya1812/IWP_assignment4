@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+// Apply animation, fade, hide and show the contents
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+// Add & remove new HTML elements / contents
+$(document).ready(function(){
+  $("#btn2").click(function(){
+    $("ol").append("<li>New list item</li>");
+  });
+  $("#btn3").click(function(){
+    $("#div1").remove();
+  });
+});
+// Apply multiple CSS properties using css() method 
+$(document).ready(function(){
+  $("#btn4").click(function(){
+    $("#p1").css({"background-color": "pink", "font-size": "200%"});
+    $("#p2").css({"background-color": "pink", "font-size": "200%"});
+    
+  });
+});
+// Incorporate jQuery dimension methods 
+$(document).ready(function(){
+  $("#btn5").click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div2").width() + "</br>";
+    txt += "Height of div: " + $("#div2").height();
+    $("#div2").html(txt);
+  });
+});
+// Apply jQuery traversing methods 
+$(document).ready(function(){
+  $("#btn6").click(function(){
+    $("#div3").contents().filter("em").wrap("<b/>");
+  });
+});
+</script>
+<style>
+  #div2 {
+  height: 100px;
+  width: 300px;
+  padding: 10px;
+  margin: 3px;
+  border: 1px solid blue;
+  background-color: lightblue;
+}
+body{
+  background-color: #FCB47E;
+  margin-left: 50px;
+
+}
+
+</style>
+</head>
+<body>
+
+<h3>In order to add & remove new HTML elements / contents</h3>
+<h4> (will remove the Paragraphs given below)</h4>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+<hr>
+
+<h3>In order to append & remove list items</h3>
+
+<p id="div1">Adding and removing items from list</p>
+<ol>
+  <li>Given List item</li>
+</ol>
+<button id="btn2">Append items to the list</button>
+<button id="btn3">Remove the div element</button>
+
+<hr>
+
+<h3>Apply multiple CSS properties using css() method </h3>
+
+<p id="p1" style="background-color:#ff00f0">This is a paragraph.</p>
+<p id="p2" style="background-color:#0ff000">This is a paragraph.</p>
+
+
+<button id="btn4">In order to set multiple styles for a p element </button>
+
+<hr>
+
+<h3>In order to incorporate jQuery dimension methods </h3>
+
+<div id="div2"></div>
+<br>
+<button id="btn5">Display the dimensions of div</button>
+
+<hr>
+
+<h3>In order to apply jQuery traversing methods </h3>
+
+<div id="div3"><em>Hey! This text will change using the traversing method!</em></div>
+<p>(In this example, by clicking on the button, we search for all the text nodes inside the div element and wrap them with a b element.)</p>
+<button id="btn6">Find all text nodes in div and wrap them</button><br>
+
+</body>
+</html>
+
+
